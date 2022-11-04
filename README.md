@@ -2,7 +2,16 @@
 
 ## Introduction
 
+We design 18 benchmark functions from the perspective of problem scale, homogeneity and heterogeneity, elementary function type, and network topology. 
+
+All the functions in this benchmark are conflicting overlapping problems, that is, the shared variables have different optimum values with respect to different subcomponents. 
+$$\boldsymbol{x} _ {i,opt}^d \neq \boldsymbol{x} _ {j,opt}^d, d\in \mathcal{I} _ {i,j}$$
+The conflicting overlapping problem is more realistic than the conforming overlapping problem where shared variables have the same optimum value with respect to different subcomponents. In these conflicting overlapping problems, the optimal fitness of each subproblem is zero, but the optimal fitness of the global problem is larger than zero. That's because subproblems cannot reach the optimal solution at the same time because the conflict between original local objectives. Therefore, the fitness of solutions in the later experiments seems to be a large number.
+
+
 ## Setting of Benchmark Functions
+
+![image-20221104163605679](C:\Users\DELL\AppData\Roaming\Typora\typora-user-images\image-20221104163605679.png)
 
 The above table shows the problem scale, homogeneity and heterogeneity, elementary function type, and network topology of benchmark functions. 
 

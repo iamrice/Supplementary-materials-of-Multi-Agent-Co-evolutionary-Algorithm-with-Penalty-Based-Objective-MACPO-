@@ -13,8 +13,6 @@ The conflicting overlapping problem is more realistic than the conforming overla
 
 ![image-20221104163605679.png](https://gitee.com/taiu/benchmark-functions-for-network-based-distributed-optimization/raw/master/img/image-20221104163605679.png)
 
-![image-20221104163605679](img\image-20221104163605679.png)
-
 The above table shows the problem scale, homogeneity and heterogeneity, elementary function type, and network topology of benchmark functions. 
 
 Functions F1-F6 contain 20 subcomponents, including five 100-dimensional problems, five 50-dimensional problems, and ten 25-dimensional problems. These subcomponents overlap with each other in a chain structure, the same topology as “f13” and “f14” in benchmark CEC2013. Each subcomponent has two neighbors except for the first and last one, and the size of each overlap domain is 5 dimensions. Thus, the size of the global problem is $100 * 5+50 * 5+25 * 10-19 * 5=905$ dimensions.

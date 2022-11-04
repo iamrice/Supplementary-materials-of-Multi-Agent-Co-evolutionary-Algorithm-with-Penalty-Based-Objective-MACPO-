@@ -14,7 +14,7 @@ Functions F13-F18 contain 60 200-dimensional subcomponents. Each subcomponent ha
 
 The type of elementary functions includes Elliptic, Schwefel and Rosenbrock. Functions F1-F3, F7-F9, F13-F15 are homogeneous functions, and Functions F4-F6, F10-F12, F16-F18 are heterogeneous functions. 
 
-The definition of local objective functions is described in Table S1 in the supplementary material. To be specific, $|S_i|$ is the problem scale of $i$th subcomponent, $\boldsymbol{x}_i^{opt}$ is the optimum solution of subproblem $f_i$, $T_{osz}$ is a transformation function to create smooth local irregularities, $T_{asy}^{0.2}$ is a transformation function to break the symmetry of functions. Thus, all the local objective functions are non-separable functions. 
+The definition of local objective functions is described in Table S1 in the supplementary material. To be specific, $|S_i|$ is the problem scale of $i$-th subcomponent, $\boldsymbol{x}_i^{opt}$ is the optimum solution of subproblem $f_i$, $T_{osz}$ is a transformation function to create smooth local irregularities, $T_{asy}^{0.2}$ is a transformation function to break the symmetry of functions. Thus, all the local objective functions are non-separable functions. 
 
 In the benchmark of \DDOPs, the global objective function $F$ is a sum of local objective functions.
 

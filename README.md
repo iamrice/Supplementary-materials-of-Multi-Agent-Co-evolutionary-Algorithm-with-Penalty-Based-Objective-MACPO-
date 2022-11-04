@@ -1,39 +1,60 @@
 # Benchmark Functions for Network-based Distributed Optimization
 
-#### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+## Introduction
 
-#### 软件架构
-软件架构说明
+## Setting of Benchmark Functions
+
+The above table shows the problem scale, homogeneity and heterogeneity, elementary function type, and network topology of benchmark functions. 
+
+Functions F1-F6 contain 20 subcomponents, including five 100-dimensional problems, five 50-dimensional problems, and ten 25-dimensional problems. These subcomponents overlap with each other in a chain structure, the same topology as “f13” and “f14” in benchmark CEC2013. Each subcomponent has two neighbors except for the first and last one, and the size of each overlap domain is 5 dimensions. Thus, the size of the global problem is $100*5+50*5+25*10-19*5=905$ dimensions.
+
+Functions F7-F12 contain 40 100-dimensional subcomponents. Each subcomponent has 3 neighbors. A randomly generated network is used as the topology of functions, where the size of each overlap domain is 10 dimensions. Thus, the size of the global problem is $100*40-60*10 =3400$ dimensions.
+
+Functions F13-F18 contain 60 200-dimensional subcomponents. Each subcomponent has 4 neighbors. A randomly generated network is used as the topology of functions, where the size of each overlap domain is 15 dimensions. Thus, the size of the global problem is $200*60-120*15 =10200$ dimensions.
+
+The type of elementary functions includes Elliptic, Schwefel and Rosenbrock. Functions F1-F3, F7-F9, F13-F15 are homogeneous functions, and Functions F4-F6, F10-F12, F16-F18 are heterogeneous functions. 
+
+The definition of local objective functions is described in Table S1 in the supplementary material. To be specific, $|S_i|$ is the problem scale of $i$th subcomponent, $\boldsymbol{x}_i^{opt}$ is the optimum solution of subproblem $f_i$, $T_{osz}$ is a transformation function to create smooth local irregularities, $T_{asy}^{0.2}$ is a transformation function to break the symmetry of functions. Thus, all the local objective functions are non-separable functions. 
+
+In the benchmark of \DDOPs, the global objective function $F$ is a sum of local objective functions.
+
+$$F = \sum_{i=1}^{n} f_i$$
+
+The local objective functions are realized based on three elementary functions: Elliptic, Schwefel, and Rosenbrock.
+
+$$f_{elliptic}(x)=\sum_{i=1}^D 10^{6\frac{i-1}{D-1}}x_i^2$$
+
+$$f_{schwefel}(x)=\sum_{i=1}^D (\sum_{j=1}^i x_i)^2$$
+
+$$f_{rosenbrock}(x) = \sum_{i=1}^{D-1} 100(x_i^2-x_{i+1})^2+(x_i-1)^2$$
 
 
-#### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+It is worth noting that the local objective functions are processed in four steps:
 
-#### 使用说明
+1. The optimal solution of functions is shift from $\vec{0}$ to $\boldsymbol{x}_i^{opt}$, which is randomly generated. This operation ensures that the optimal solution of each local objective function is different. 
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+2. The vector is rotated by an orthogonal matrix $R$, which is also randomly generated. The operation makes all the variables in the objective function interdependent on each other, ensuring the local objective function is non-separable.
 
-#### 参与贡献
+3.  The vector is put into a transformation function $T_{osz}$ to create smooth local irregularities. 
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+4.  The vector is put into a transformation function $T_{asy}$ to break the symmetry of the symmetric functions.
 
 
-#### 特技
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+Finally, the local objective function is expressed as follows:
+
+$$f_i=f_{elementary}(z_i)$$
+
+$$z_i=T_{asy}^{0.2}(T_{osz}(R_iy_i))$$
+
+$$y_i=\boldsymbol{x}_i-\boldsymbol{x}_i^{opt}$$
+
+
+
+The definition of $T_{osz}$ and $T_{asy}$ can be found in benchmark CEC2013 [1].
+
+[1] X.  Li,  K.  Tang,  M.  N.  Omidvar,  Z.  Yang,  and  K.  Qin,  “Benchmark  Functions  for  the  CEC’2013  Special  Session  and  Competition  onLarge-Scale Global Optimization,”gene, p. 23, 2013.
+
+## Parameter Setting of MACPO
+

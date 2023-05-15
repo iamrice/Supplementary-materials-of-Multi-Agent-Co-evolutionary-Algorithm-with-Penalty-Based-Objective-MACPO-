@@ -11,7 +11,7 @@ The conflicting overlapping problem is more realistic than the conforming overla
 
 ## Setting of Benchmark Functions
 
-![image-20221104163605679.png](https://gitee.com/taiu/benchmark-functions-for-network-based-distributed-optimization/raw/master/img/image-20221104163605679.png)
+![image-20221104163605679.png](img/image-20221104163605679.png)
 
 The above table shows the problem scale, homogeneity and heterogeneity, elementary function type, and network topology of benchmark functions. 
 
@@ -51,7 +51,7 @@ The definition of $T _ {osz}$ and $T _ {asy}$ can be found in benchmark CEC2013 
 
 ## Parameter Setting of MACPO
 
-![image-20221104163605679.png](https://gitee.com/taiu/benchmark-functions-for-network-based-distributed-optimization/raw/master/img/image-1667551915.png)
+![image-20221104163605679.png](img/image-1667551915.png)
 
 The setting of penalty weight is important to balance the relative size of the penalty item and the original objective value. When the penalty weight is set to a large value, the fitness is mainly determined by the distance between the evaluated solution and the consensus solution. In this case, the whole population will evolve closely around the consensus solution and the exploration of the algorithm is poor. When the penalty weight is set to a small value, the fitness is mainly determined by the local fitness of the evaluated solution. In this case, the population will evolve towards the original local objective and ignore the cooperation with neighbors. This is not what we expect. In conclusion, medium weight is preferred in MACPO. 
 

@@ -15,19 +15,19 @@ The conflicting problem is more realistic than the conforming problem where shar
 
 The above table shows the problem scale, homogeneity and heterogeneity, elementary function type, and network topology of benchmark functions. 
 
-Functions F1-F6 contain 20 agents, including five 100-dimensional problems, five 50-dimensional problems, and ten 25-dimensional problems. These agents connect in a chain structure, the same topology as “f13” and “f14” in benchmark CEC2013. Each agent has two neighbors except for the first and last one, and Each pair of neighbors have 5 shared variables. Thus, the size of the global problem is $100 * 5+50 * 5+25 * 10-19 * 5=905$ dimensions.
+Functions F1-F6 contain 20 agents, including five 100-dimensional problems, five 50-dimensional problems, and ten 25-dimensional problems. These agents connect in a chain structure, the same topology as “f13” and “f14” in benchmark CEC2013. Each agent has two neighbors except for the first and last one, and each pair of neighbors have 5 shared variables. Thus, the size of the global problem is $100 * 5+50 * 5+25 * 10-19 * 5=905$ dimensions.
 
 Functions F7-F12 contain 40 100-dimensional subcomponents. Each agent has 3 neighbors. A randomly generated network is used as the topology of functions, where each pair of neighbors have 10 shared variables. Thus, the size of the global problem is $100 * 40-60 * 10 =3400$ dimensions.
 
 Functions F13-F18 contain 60 200-dimensional subcomponents. Each agent has 4 neighbors. A randomly generated network is used as the topology of functions, where each pair of neighbors have 15 shared variables. Thus, the size of the global problem is $200 * 60-120 * 15 =10200$ dimensions.
 
-The type of elementary functions includes Elliptic, Schwefel and Rosenbrock. Functions F1-F3, F7-F9, F13-F15 are homogeneous functions, and Functions F4-F6, F10-F12, F16-F18 are heterogeneous functions. 
 
-The definition of local objective functions are described in Table S1 in the supplementary material. To be specific, $|S _ i|$ is the problem scale of $i$th agent, $\boldsymbol{x} _ i^{opt}$ is the optimum solution of subproblem $f _ i$, $T _ {osz}$ is a transformation function to create smooth local irregularities, $T _ {asy}^{0.2}$ is a transformation function to break the symmetry of functions. Thus, all the local objective functions are non-separable functions. 
-
-In the benchmark of \DDOPs, the global objective function $F$ is a sum of local objective functions.
+In the benchmark of NDO, the global objective function $F$ is a sum of local objective functions.
 $$F = \sum _ {i=1}^{n} f _ i$$
 
+The type of local objective functions includes Elliptic-variant, Schwefel-variant and Rosenbrock-variant. Functions F1-F3, F7-F9, F13-F15 are homogeneous functions, and Functions F4-F6, F10-F12, F16-F18 are heterogeneous functions. 
+
+Local objective functions are constructed as follows:
 
 ### 1. elliptic-variant
 
@@ -93,6 +93,7 @@ Properties:
 3. "Smooth local irregularities" means the vector is put into a transformation function $T _ {osz}$ to create smooth local irregularities. 
 
 4. "asymmetric" means the vector is put into a transformation function $T _ {asy}$ to break the symmetry of the symmetric functions.
+
 
 The definition of $T _ {osz}$ and $T _ {asy}$ can be found in benchmark CEC2013 [1].
 

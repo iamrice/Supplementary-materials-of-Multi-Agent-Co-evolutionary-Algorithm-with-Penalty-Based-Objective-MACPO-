@@ -27,10 +27,11 @@ The definition of local objective functions are described in Table S1 in the sup
 
 In the benchmark of \DDOPs, the global objective function $F$ is a sum of local objective functions.
 $$F = \sum _ {i=1}^{n} f _ i$$
-The local objective functions are realized based on three elementary functions: Elliptic, Schwefel, and Rosenbrock.
-$$f _ {elliptic}(x)=\sum _ {i=1}^D 10^{6\frac{i-1}{D-1}}x _ i^2$$
-$$f _ {schwefel}(x)=\sum _ {i=1}^D (\sum _ {j=1}^i x _ i)^2$$
-$$f _ {rosenbrock}(x) = \sum _ {i=1}^{D-1} 100(x _ i^2-x _ {i+1})^2+(x _ i-1)^2$$
+The local objective functions are constructed based on three elementary functions: Elliptic, Schwefel, and Rosenbrock.
+
+![elliptic](https://github.com/iamrice/Supplementary-materials-of-Multi-Agent-Co-evolutionary-Algorithm-with-Penalty-Based-Objective-MACPO-/assets/46922809/8307036a-a963-47f5-a9a0-516772728adb)
+![sch-and-rosen](https://github.com/iamrice/Supplementary-materials-of-Multi-Agent-Co-evolutionary-Algorithm-with-Penalty-Based-Objective-MACPO-/assets/46922809/11b06fb8-bc14-4ee6-9b38-34798719d625)
+
 
 It is worth noting that the local objective functions are processed in four steps:
 

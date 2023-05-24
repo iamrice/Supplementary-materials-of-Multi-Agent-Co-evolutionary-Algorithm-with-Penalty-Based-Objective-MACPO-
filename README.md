@@ -108,3 +108,7 @@ The below figure and table show the performance of MACPO on F1-F6 when the param
 
 ![experiment results](img/image.png)
 ![image-20221104163605679.png](img/image-1667551915.png)
+
+## analysis of MAC-FEA
+![image](https://github.com/iamrice/Supplementary-materials-of-Multi-Agent-Co-evolutionary-Algorithm-with-Penalty-Based-Objective-MACPO-/assets/46922809/be7f2ae8-823c-40ef-b83e-d1044e779a36)
+
